@@ -37,7 +37,7 @@ const showErrorMessage = selector => {
   document.querySelector(selector).classList.add("show");
 };
 
-form.addEventListener("submit", event => {
+const handleSubmit = event => {
   event.preventDefault();
   clearErrorMessages();
 
@@ -45,11 +45,13 @@ form.addEventListener("submit", event => {
   const email = emailInputField.value;
   const message = messageTextArea.value;
 
-  const nameValid = name && name != "";
-  const emailValid = email && email != "" && /\w+@\w+\.\w+/.test(email);
-  const messageValid = message && message != "";
+  const nameValid = name != null && name != "";
+  const emailValid = email != null && email != "" && /\w+@\w+\.\w+/.test(email);
+  const messageValid = message != null && message != "";
 
   if (nameValid && emailValid && messageValid) {
+    console.log("Send message to server...");
+    console.log(`name: ${name}\nemail: ${email}\nmessage: ${message}`);
     showPopup();
   } else {
     if (!nameValid) {
@@ -62,6 +64,8 @@ form.addEventListener("submit", event => {
       showErrorMessage(".error-message-message");
     }
   }
-});
+};
+
+form.addEventListener("submit", handleSubmit);
 
 document.querySelector(".popup .btn").addEventListener("click", closePopup);
