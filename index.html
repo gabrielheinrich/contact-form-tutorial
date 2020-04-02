@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <section>
+      <form class="contact-form">
+        <span class="error-message error-message-name"
+          >Please tell us your name</span
+        >
+        <input type="text" placeholder="Name" name="name" />
+        <span class="error-message error-message-email"
+          >Please enter your email address</span
+        >
+        <input type="text" placeholder="Email" name="email" />
+        <span class="error-message error-message-message"
+          >Enter your message</span
+        >
+        <textarea name="message" placeholder="Message"></textarea>
+        <input class="btn" type="submit" value="Send" />
+      </form>
+    </section>
+    <div class="popup-container">
+      <div class="popup" id="contact-form-submitted">
+        <h3>Thank you!</h3>
+        <p>Your message has been sent.</p>
+        <p>We'll get back to you as soon as possible.</p>
+        <div class="btn">OK</div>
+      </div>
+    </div>
+  </body>
+</html>
